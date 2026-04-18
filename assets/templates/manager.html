@@ -1,0 +1,61 @@
+<div class="wide100p padding5 dataBankAttachments" id="table_manager_container" dir="rtl" style="text-align: right;">
+    <small data-i18n="managerDescription">
+        هذه الجداول مخصصة لتخزين بيانات القصة. العب بشكل طبيعي، وسيتم تحديث الجداول تلقائياً بالخلفية بدون أي تدخل منك. 
+        <br>زر (ترتيب الجدول) في الأسفل مخصص للتدخل اليدوي فقط إذا أردت إجبار الذكاء الاصطناعي على تلخيص أو ترتيب الأحداث.
+    </small>
+    <div id="tableEditTips"></div>
+    <hr />
+    <div style=" display: flex; justify-content: space-between; flex-wrap: wrap; direction: rtl;">
+        <div style=" display: flex; justify-content: flex-start; flex-wrap: wrap; width: fit-content; gap: 4px;">
+            <div style="display: flex; justify-content: center" id="table_data_statistics_button" title="إحصائيات الجدول"
+                data-i18n="[title]View table data statistics">
+                <i class="menu_button menu_button_icon fa-solid fa-ranking-star" style="height: 30px; width: 30px"></i>
+            </div>
+            <div style="display: flex; justify-content: center" id="dataTable_history_button" title="سجل التعديلات"
+                data-i18n="[title]View table edit history">
+                <i class="menu_button menu_button_icon fa-solid fa-history" style="height: 30px; width: 30px"></i>
+            </div>
+            <div style="display: flex; justify-content: center" id="table_undo" title="تراجع عن التعديل"
+                data-i18n="[title]Completely rebuild table">
+                <i class="menu_button menu_button_icon fa-solid fa-undo" style="height: 30px; width: 30px"></i>
+            </div>
+            <div style="display: flex; justify-content: center" id="table_rebuild_button" title="تلخيص وترتيب يدوي"
+                data-i18n="[title]Completely rebuild table">
+                <i class="menu_button menu_button_icon fa-solid fa-repeat"> ترتيب الجدول</i>
+            </div>
+        </div>
+        <div style=" display: flex; justify-content: flex-end; flex-wrap: wrap; width: fit-content; gap: 4px;">
+            <div style="display: flex; justify-content: center" id="copy_table_button">
+                <i class="menu_button menu_button_icon fa-solid fa-copy" style="height: 30px; width: 30px" title="نسخ الجدول"
+                    data-i18n="[title]Copy table"></i>
+            </div>
+            <div style="display: flex; justify-content: center" id="import_table_button">
+                <i class="menu_button menu_button_icon fa-solid fa-file-import" style="height: 30px; width: 30px"
+                    title="استيراد جدول" data-i18n="[title]Import table"></i>
+            </div>
+            <div style="display: flex; justify-content: center" id="export_table_button">
+                <i class="menu_button menu_button_icon fa-solid fa-file-export" style="height: 30px; width: 30px"
+                    title="تصدير جدول" data-i18n="[title]Export table"></i>
+            </div>
+            <div style="display: flex; justify-content: center" id="clear_table_button">
+                <i class="menu_button menu_button_icon fa-solid fa-trash-can redWarningBG"
+                    style="height: 30px; width: 30px" title="مسح الجدول بالكامل" data-i18n="[title]Clear table"></i>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div style="display: flex; justify-content: space-between; direction: rtl;">
+        <div style="display: flex; justify-content: center" id="table_prev_button" title="الجدول السابق">
+            <i class="menu_button menu_button_icon fa-solid">&lt; السابق</i>
+        </div>
+        <div id="table_indicator" style="font-weight: bold;">أنت تشاهد الجدول الحالي</div>
+        <div style="display: flex; justify-content: center" id="table_next_button" title="الجدول التالي">
+            <i class="menu_button menu_button_icon fa-solid">التالي &gt;</i>
+        </div>
+    </div>
+    <hr />
+    <div id="contentContainer">
+        <div id="tableContainer">
+        </div>
+    </div>
+</div>

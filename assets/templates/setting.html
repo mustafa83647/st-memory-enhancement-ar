@@ -1,0 +1,63 @@
+<div class="wide100p padding5 dataBankAttachments" dir="rtl" style="text-align: right;">
+    <h2 class="marginBot5">
+        <span>
+            تعديل هيكل الجدول
+        </span>
+    </h2>
+    <div>
+        هنا يمكنك تعديل وصف الجدول وتغيير الشروط والتعليمات الخاصة به.
+    </div>
+    <div class="dataTable_tablePrompt_list">
+        <label style="font-weight: bold; margin-top: 10px;">اسم الجدول</label>
+        <input type="text" id="dataTable_tableSetting_tableName" class="margin0 text_pole" style=" margin-bottom: 20px;"/>
+        
+        <label style="font-weight: bold;">وصف الجدول</label><small> (شرح وظيفته للذكاء الاصطناعي)</small>
+        <textarea id="dataTable_tableSetting_note" class="wide100p" rows="2" style="text-align: left; direction: ltr;"></textarea>
+        
+        <div class="checkbox flex-container" style="margin-bottom: 10px; justify-content: flex-start;">
+            <input type="checkbox" id="dataTable_tableSetting_required"><span>جدول إجباري (مطلوب دائماً)</span>
+        </div>
+        
+        <label style="font-weight: bold;">تعليمات التهيئة</label><small> (تُعطى للـ AI عندما يكون الجدول فارغاً)</small>
+        <textarea id="dataTable_tableSetting_initNode" class="wide100p" rows="2" style="text-align: left; direction: ltr;"></textarea>
+        
+        <label style="font-weight: bold;">شروط الإضافة (Insert)</label><small> (متى يجب إضافة صف جديد؟)</small>
+        <textarea id="dataTable_tableSetting_insertNode" class="wide100p" rows="2" style="text-align: left; direction: ltr;"></textarea>
+        
+        <label style="font-weight: bold;">شروط التحديث (Update)</label><small> (متى يجب تعديل صف موجود؟)</small>
+        <textarea id="dataTable_tableSetting_updateNode" class="wide100p" rows="2" style="text-align: left; direction: ltr;"></textarea>
+        
+        <label style="font-weight: bold;">شروط الحذف (Delete)</label><small> (متى يجب حذف صف؟)</small>
+        <textarea id="dataTable_tableSetting_deleteNode" class="wide100p" rows="2" style="text-align: left; direction: ltr;"></textarea>
+
+        <div class="checkbox flex-container" style="margin-bottom: 10px; margin-top: 15px; justify-content: flex-start;">
+            <input type="checkbox" id="dataTable_tableSetting_toChat">
+            <span>إرسال الجدول للمحادثة</span>
+            <small> (عند التفعيل، سيُرسل هذا الجدول داخل الشات)</small>
+        </div>
+        <div class="checkbox flex-container" style="justify-content: flex-start;">
+            <label style="font-weight: bold;">تنسيق الإرسال</label><small> (شكل الجدول عند إرساله للمحادثة)</small>
+        </div>
+        <textarea id="dataTable_tableSetting_tableRender" class="wide100p" rows="2" style="text-align: left; direction: ltr;"></textarea>
+        <i class="menu_button menu_button_icon fa-solid fa-bug tableEditor_renderButton" data-index="${tableIndex}" style="margin-top: 10px;">
+            <a>تجربة التنسيق في وضع المطورين</a>
+        </i>
+    </div>
+</div>
+
+<div class="wide100p padding5 dataBankAttachments" dir="rtl" style="text-align: right;">
+    <h2 class="marginBot5">
+        <span>
+            إعدادات التحديث المنفصل (Step-by-Step)
+        </span>
+    </h2>
+    <div>
+        هنا يمكنك تعديل أوامر تحديث الجداول التي تتم بشكل منفصل عن المحادثة.
+    </div>
+    <div class="dataTable_tablePrompt_list">
+        <label for="separateReadContextLayers" style="font-weight: bold; margin-top: 10px;">عمق السياق</label><small> (عدد الرسائل السابقة التي يقرأها الـ AI)</small>
+        <input type="number" id="separateReadContextLayers" class="margin0 text_pole" style="margin-bottom: 20px; width: 80px;" min="0" value="1"/>
+        <label for="step_by_step_user_prompt" style="font-weight: bold;">أمر التحديث المنفصل</label><small> (الأمر الموجه للذكاء الاصطناعي)</small>
+        <textarea id="step_by_step_user_prompt" class="wide100p" rows="10" style="text-align: left; direction: ltr;"></textarea>
+    </div>
+</div>

@@ -1,0 +1,266 @@
+<div class="memory_enhancement_container" dir="rtl" style="text-align: right;">
+    <div class="memory_enhancement_settings">
+        <div class="inline-drawer">
+            <div id="inline_drawer_header_content">
+                <b style="font-size: 1.1rem" data-i18n="Memory Enhancement (Tables)">الذاكرة المعززة (الجداول)</b>
+                <span id="tableUpdateTag" style="cursor: pointer; background-color: #41b68188"
+                    data-i18n="Click to update">اضغط للتحديث</span>
+            </div>
+
+            <div class="inline-drawer-content">
+                <div id="memory_enhancement_settings_inline_drawer_content">
+                    <div style=" display: flex; flex-direction: row; justify-content: space-between; ">
+                        <div style=" display: flex; flex-direction: row; gap: 10px;">
+                            <div class="menu_button_icon menu_button interactable">
+                                <i class="fa-brands fa-github fa-lg"></i>
+                                <a href="https://github.com/muyoou/st-memory-enhancement/"
+                                    data-i18n="Project link">رابط المشروع</a>
+                            </div>
+                            <div class="menu_button_icon menu_button interactable">
+                                <i class="fa-solid fa-book"></i>
+                                <a href="https://muyoo.com.cn/wiki/memory/start.html" data-i18n="Read tutorial">قراءة الشرح</a>
+                            </div>
+                            <div class="menu_button_icon menu_button interactable">
+                                <i class="fa-solid fa-list"></i>
+                                <a href="https://github.com/muyoou/st-memory-enhancement/releases"
+                                    data-i18n="Changelog">سجل التحديثات</a>
+                            </div>
+                        </div>
+                        <div class="menu_button_icon menu_button interactable" id="table_debug_log_button">
+                            <i class="fa-solid fa-bug"></i>
+                            <a data-i18n="Logs">السجلات</a>
+                        </div>
+                    </div>
+                    <div id="table_message_tip"></div>
+
+                    <div class="persona_management_left_column flex-container wide100p flexGap10"
+                        style="padding: 10px 0; gap: 10px">
+                        <div class="flex1 wide50p" style="min-width: 300px">
+                            <h4 class="standoutHeader" data-i18n="Plugin settings">إعدادات الإضافة</h4>
+
+                            <div>
+                                <h4 class="standoutHeader flex-container wide100p"
+                                    style="justify-content: space-between; align-items: center">
+                                    <div data-i18n="Import, export and reset plugin">الاستيراد والتصدير وإعادة الضبط</div>
+                                    <div class="flex-container">
+                                        <div class="menu_button button-square-icon fa-solid fa-file-import"
+                                            id="table-set-import" title="استيراد قوالب الجداول"
+                                            data-i18n="[title]Import table presets"></div>
+                                        <div class="menu_button button-square-icon fa-solid fa-file-export"
+                                            id="table-set-export" title="تصدير قوالب الجداول"
+                                            data-i18n="[title]Export table presets"></div>
+                                        <div class="menu_button button-square-icon fa-solid fa-undo" id="table-reset"
+                                            title="إعادة ضبط الإضافة" data-i18n="[title]Reset table presets"></div>
+                                    </div>
+                            </div>
+
+                            <h4 data-i18n="Plugin switches">مفاتيح التشغيل</h4>
+                            <div class="checkbox_label range-block" style="justify-content: flex-start;">
+                                <input type="checkbox" id="table_switch"><span data-i18n="Enable plugin">تفعيل الإضافة</span>
+                            </div>
+                            <div class="checkbox_label range-block" style="justify-content: flex-start;">
+                                <input type="checkbox" id="table_switch_debug_mode"><span
+                                    data-i18n="Debug mode">وضع المطورين</span>
+                                <small class="toggle-description" style="justify-content: flex-start;"
+                                    data-i18n="Debug mode description">(يستخدم لاختبار الأكواد فقط، يسبب بطء في الأداء)</small>
+                            </div>
+
+                            <h4 data-i18n="Message template">قالب الرسالة</h4>
+                            <div style="padding-right: 5px;">
+                                <label for="dataTable_message_template"></label>
+                                <small class="toggle-description" style="justify-content: flex-start;"
+                                    data-i18n="Message template description">(يُستخدم لتعليم الذكاء الاصطناعي كيفية استخدام وتعديل الجداول، استخدم الأمر <code>{{tableData}}</code> لتحديد مكان إدراج البيانات)</small>
+                                <textarea id="dataTable_message_template" class="wide100p" rows="8" style="text-align: left; direction: ltr;"></textarea>
+                            </div>
+                            <div style="padding-right: 5px;">
+                                <div style="display: flex; align-items: center;">
+                                    <label for="dataTable_injection_mode" style="min-width: 50px"
+                                        data-i18n="Injection">الحقن:</label>
+                                    <select id="dataTable_injection_mode" style="margin-right: 5px;">
+                                        <option value="injection_off" data-i18n="Turn off injection">إيقاف الحقن</option>
+                                        <option value="deep_system">@D ⚙</option>
+                                        <option value="deep_user">@D 👤</option>
+                                        <option value="deep_assistant">@D 🤖</option>
+                                    </select>
+                                    <label for="dataTable_deep" style="min-width: 60px; padding-right: 10px;"
+                                        data-i18n="Depth">العمق:</label>
+                                    <input id="dataTable_deep" class="text_pole" type="number" style="margin-right: 5px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex1 wide50p" style="min-width: 300px">
+                            <div>
+                                <h4 class="standoutHeader" data-i18n="Run strategy">استراتيجية التشغيل</h4>
+                                <label for="fill_table_time" data-i18n="Render to">تحديث الجدول يحدث:</label>
+                                <select id="fill_table_time" class="flex1" style="min-width: 100px">
+                                    <option value="chat">أثناء المحادثة (تلقائي)</option>
+                                    <option value="after">بعد استقبال الرسالة (بشكل منفصل)</option>
+                                </select>
+
+                                <div id="reply_options" style="padding-right: 20px; width: calc(100% - 20px);">
+                                    <div class="checkbox_label range-block" style="justify-content: flex-start;">
+                                        <input type="checkbox" id="table_read_switch"><span
+                                            data-i18n="AI read table switch">السماح للذكاء الاصطناعي بقراءة الجدول</span>
+                                    </div>
+                                    <div class="checkbox_label range-block" style="justify-content: flex-start;">
+                                        <input type="checkbox" id="table_edit_switch"><span
+                                            data-i18n="AI edit table switch">السماح للذكاء الاصطناعي بتعديل الجدول</span>
+                                    </div>
+                                </div>
+
+                                <div id="step_by_step_options" style="padding-right: 20px; width: calc(100% - 20px);">
+                                    <div class="checkbox_label" style="display: flex; align-items: center;">
+                                        <input type="checkbox" id="step_by_step_use_main_api" checked><span
+                                            data-i18n="Use main API">استخدام الـ API الأساسي</span>
+                                        <div class="menu_button menu_button_icon" id="trigger_step_by_step_button"
+                                            style="margin-right: 10px;">
+                                            <i class="fa-solid fa-play"></i><a data-i18n="Fill now">تحديث الآن</a>
+                                        </div>
+                                        <label for="separateReadContextLayers" style="margin-right: 10px;">عمق السياق</label>
+                                        <input type="number" id="separateReadContextLayers" class="margin0 text_pole"
+                                            style="width: 50px; margin-right: 5px;" min="1" value="1" />
+                                        <label for="separateReadLorebook" style="margin-right: 10px;">قراءة كتاب العالم (Lorebook)</label>
+                                        <input type="checkbox" id="separateReadLorebook" class="margin0" style="margin-right: 5px;" />
+                                        <small class="toggle-description" style="justify-content: flex-start;">(لا ينصح به إذا كان الـ API محدود)</small>
+                                    </div>
+                                    <div style="padding-right: 5px; margin-bottom: 10px;">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <label for="step_by_step_user_prompt"
+                                                data-i18n="settings.label.stepByStepUserPrompt">هيكل أمر التحديث المستقل</label>
+                                            <div class="menu_button button-square-icon fa-solid fa-undo"
+                                                id="reset_step_by_step_user_prompt" title="إعادة للوضع الافتراضي"
+                                                data-i18n="[title]Reset to default"></div>
+                                        </div>
+                                        <small class="toggle-description" style="justify-content: flex-start;"
+                                            data-i18n="settings.hint.stepByStepUserPrompt">(هذا الأمر سيُرسل بشكل منفصل، يرجى الحفاظ على التنسيق البرمجي json)</small>
+                                        <textarea id="step_by_step_user_prompt"
+                                            class="text_pole settings_textarea wide100p" rows="8"
+                                            placeholder="أدخل أمر التحديث المستقل" style="text-align: left; direction: ltr;"></textarea>
+                                    </div>
+                                    <div class="checkbox_label range-block" style="justify-content: flex-start;">
+                                        <input type="checkbox" id="confirm_before_execution" checked><span
+                                            data-i18n="Confirm before execution">التأكيد قبل التنفيذ</span>
+                                        <small class="toggle-description" style="justify-content: flex-start;"
+                                            data-i18n="Confirm before execution description">(ستظهر نافذة تأكيد قبل كل عملية تحديث مستقلة)</small>
+                                    </div>
+
+                                    <div class="inline-drawer wide100p">
+                                        <div class="inline-drawer-toggle inline-drawer-header">
+                                            <b><span data-i18n="Custom independent API">إعدادات API مستقل مخصص</span></b>
+                                            <div class="fa-solid fa-circle-chevron-down inline-drawer-icon down"></div>
+                                        </div>
+                                        <div class="inline-drawer-content"
+                                            style="display: none; padding-right: 20px; width: calc(100% - 20px)">
+                                            <input type="text" id="custom_api_url" class="text_pole"
+                                                placeholder="رابط הـ API (يجب أن ينتهي بـ /v1)" style="text-align: left; direction: ltr;">
+                                            <input type="password" id="custom_api_key" class="text_pole"
+                                                placeholder="مفتاح الـ API (افصل بينها بفاصلة إذا كان هناك أكثر من واحد)" style="text-align: left; direction: ltr;">
+                                            <input type="text" id="custom_model_name" class="text_pole"
+                                                placeholder="اسم الموديل (يمكن كتابته أو سحبه تلقائياً)" style="text-align: left; direction: ltr;">
+                                            <div class="range-block" style="justify-content: flex-start;">
+                                                <select id="model_selector" class="text_pole">
+                                                    <option value="">اسحب قائمة الموديلات أولاً</option>
+                                                </select>
+                                                <div class="menu_button menu_button_icon" id="fetch_models_button">
+                                                    <a>سحب الموديلات</a>
+                                                </div>
+                                                <div class="menu_button menu_button_icon" id="table_test_api_button"
+                                                    style="margin-right: 5px;">
+                                                    <a>اختبار الاتصال</a>
+                                                </div>
+                                            </div>
+                                            <div class="flex-container slider-container"
+                                                style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                                                <label
+                                                    style="min-width: 140px; margin: 0; white-space: nowrap; flex-shrink: 0;"
+                                                    data-i18n="Custom API temperature setting">حرارة الـ API المخصص:<span
+                                                        id="custom_temperature_value" style="margin-right: 5px;">1.0</span></label>
+                                                <input type="range" id="custom_temperature" min="0.1" max="2.0"
+                                                    step="0.1" value="1.0" style="flex-grow: 1;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="inline-drawer wide100p">
+                                <div class="inline-drawer-toggle inline-drawer-header">
+                                    <b><span data-i18n="Reorganize tables">تلخيص/ترتيب الجداول (يُستخدم يدوياً)</span></b>
+                                    <div class="fa-solid fa-circle-chevron-down inline-drawer-icon down"></div>
+                                </div>
+                                <div class="inline-drawer-content" style="display: none; ">
+                                    <div class="checkbox_label range-block" style="justify-content: flex-start;">
+                                        <input type="checkbox" id="use_main_api" checked><span
+                                            data-i18n="Use main API">استخدام الـ API الأساسي</span>
+                                    </div>
+
+<div class="flex-container slider-container" style="margin: 5px; padding-bottom: 10px; display: flex; flex-wrap: wrap; align-items: center;" id="token_limit_container">
+
+    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+        <label style="margin: 0;"><span data-i18n="Token limit">حد التوكنز:</span><code id="rebuild_token_limit_value" style="margin-right: 5px;">10000</code></label>
+
+        <!-- مربع الكتابة النظيف -->
+        <input type="number" id="token_limit_text_input" class="text_pole" min="1000" max="9999999" step="1000" style="width: 120px; text-align: center; margin: 0;" placeholder="اكتب الرقم">
+    </div>
+    <!-- شريط السحب -->
+    <input type="range" id="rebuild_token_limit" min="1000" max="9999999" step="1000" value="10000" style="width: 100%; margin-top: 10px;">
+</div>
+<!-- 🚀 فيروس المزامنة (jQuery) 🚀 -->
+<script>
+    setTimeout(() => {
+        // تعريف العناصر
+        const $slider = $('#rebuild_token_limit');
+        const $input = $('#token_limit_text_input');
+        const $display = $('#rebuild_token_limit_value');
+        // 1. عند فتح الإعدادات: اجعل المربع يقرأ قيمة الشريط
+        $input.val($slider.val());
+        // 2. عند سحب الشريط: حدّث المربع
+        $slider.on('input change', function() {
+            $input.val($(this).val());
+        });
+        // 3. عند الكتابة في المربع: حدّث الشريط، والواجهة، وأجبر الإضافة على الحفظ!
+        $input.on('input', function() {
+            let val = $(this).val();
+            if(val !== '') {
+                $slider.val(val);          // تحريك الشريط
+                $display.text(val);        // تغيير الرقم النصي
+                $slider.trigger('change'); // إجبار الإضافة على حفظ الرقم في النظام!
+            }
+        });
+    }, 1000); // ننتظر ثانية واحدة لضمان أن الإضافة قد انتهت من التحميل
+</script>
+                                    <div class="checkbox_label range-block" style="justify-content: flex-start;">
+                                        <input type="checkbox" id="ignore_user_sent" checked><span
+                                            data-i18n="Only reference AI replies">الاعتماد على رسائل الذكاء الاصطناعي فقط</span>
+                                    </div>
+                                    <div class="checkbox_label range-block" style="justify-content: flex-start;">
+                                        <input type="checkbox" id="bool_silent_refresh"><span
+                                            data-i18n="Skip confirmation dialog after reorganizing">تخطي نافذة التأكيد بعد التلخيص</span>
+                                    </div>
+
+                                    <div class="flex-container" style="flex-wrap: nowrap; padding-top: 10px; align-items: center;">
+                                        <b style="width: 170px;">قالب التلخيص:</b>
+                                        <select id="rebuild_preset_style" style="flex-grow: 1; max-width: 150px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; margin-right: 5px;"></select>
+                                    </div>
+                                    <div style="padding-right: 5px;">
+                                        <label for="dataTable_rebuild_system_message_template">تعليمات النظام (System Prompt)</label>
+                                        <textarea id="dataTable_rebuild_system_message_template" class="wide100p" rows="4" style="text-align: left; direction: ltr;"></textarea>
+                                        <label for="dataTable_rebuild_user_message_template">تعليمات المستخدم (User Prompt)</label>
+                                        <textarea id="dataTable_rebuild_user_message_template" class="wide100p" rows="4" style="text-align: left; direction: ltr;"></textarea>
+                                        <label for="dataTable_rebuild_additional_prompt">تعليمات إضافية (اختياري)</label>
+                                        <textarea id="dataTable_rebuild_additional_prompt" class="wide100p" rows="2" style="text-align: left; direction: ltr;" placeholder="مثال: ركز على تلخيص المعارك..."></textarea>
+                                    </div>
+
+                                    <div class="menu_button interactable" id="rebuild_table_button" style="text-align: center; margin-top: 10px;">
+                                        <i class="fa-solid fa-arrows-rotate"></i>
+                                        <span data-i18n="Reorganize tables now">ترتيب الجدول الآن</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                                            </div>

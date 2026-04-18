@@ -1,0 +1,11 @@
+{
+    "display_name": "جداول تعزيز الذاكرة",
+    "loading_order": 100,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "assets/styles/style.css",
+    "author": "muyoo",
+    "version": "2.2.8",
+    "homePage": "https://github.com/muyoou/st-memory-enhancement"
+}
